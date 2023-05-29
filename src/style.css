@@ -27,3 +27,11 @@ td {
     color: black;
     cursor: pointer;
 }
+
+.selec {
+    background-color: rgb(131, 131, 4)
+}
+
+.pawn_choice {
+    cursor: pointer
+}
