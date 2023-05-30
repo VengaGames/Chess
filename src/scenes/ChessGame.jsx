@@ -72,10 +72,26 @@ const ChessGame = () => {
   const [turn, setTurn] = useState("white");
 
   const playPiece = (square) => {
-    if (square.piece?.color !== turn) {
+    const piece = selectedPiece.piece;
+    if (!piece) {
+      setSelectedPiece(null);
+      return setError("No piece selected");
+    }
+    if (piece?.color !== turn) {
       setSelectedPiece(null);
       return setError("Not your piece");
     }
+    setGame((prev) => {
+      const newGame = [...prev];
+      const from = newGame.findIndex((square) => square.row === selectedPiece.row && square.col === selectedPiece.col);
+      const to = newGame.findIndex((s) => s.row === square.row && s.col === square.col);
+      newGame[from].piece = null;
+      newGame[to].piece = piece;
+      console.log(newGame[to], selectedPiece);
+      return newGame;
+    });
+    setSelectedPiece(null);
+    setTurn((prev) => (prev === "white" ? "black" : "white"));
   };
 
   return (
@@ -93,7 +109,9 @@ const ChessGame = () => {
               } ${square.piece?.color === "black" ? "text-black" : "text-white"}`}
               style={{ gridRow: square.row + 1, gridColumn: square.col + 1 }}
               key={index}
-              onClick={() => (selectedPiece ? playPiece(square) : setSelectedPiece(square))}>
+              onClick={() => {
+                return selectedPiece !== null ? playPiece(square) : setSelectedPiece(square);
+              }}>
               {square.piece && square.piece.type}
             </div>
           );
