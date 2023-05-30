@@ -1,37 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 table {
-    border-collapse: collapse;
-    margin: auto;
+  border-collapse: collapse;
+  margin: auto;
 }
 
 td {
-    border: 1px solid black;
-    width: 50px;
-    height: 50px;
-    text-align: center
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
 }
 
 .WhiteCase {
-    background-color: darkgrey
+  background-color: darkgrey;
 }
 
 .BlackCase {
-    background-color: rgb(41, 41, 41)
+  background-color: rgb(41, 41, 41);
 }
 
 .W {
-    color: white;
-    cursor: pointer;
+  color: white;
+  cursor: pointer;
 }
 
 .B {
-    color: black;
-    cursor: pointer;
+  color: black;
+  cursor: pointer;
 }
 
 .selec {
-    background-color: rgb(131, 131, 4)
+  background-color: rgb(131, 131, 4);
 }
 
 .pawn_choice {
-    cursor: pointer
+  cursor: pointer;
 }
