@@ -110,7 +110,7 @@ const ChessGame = () => {
               style={{ gridRow: square.row + 1, gridColumn: square.col + 1 }}
               key={index}
               onClick={() => {
-                return selectedPiece !== null ? playPiece(square) : setSelectedPiece(square);
+                return selectedPiece !== null ? playPiece(square) : setSelectedPiece(structuredClone(square));
               }}>
               {square.piece && square.piece.type}
             </div>
